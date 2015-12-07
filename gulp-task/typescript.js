@@ -7,6 +7,7 @@ module.exports = function (gulp, $) {
       .pipe($.plumber())
       .pipe($.print())
       .pipe($.typescript($.typescript.createProject('tsconfig.json')))
+      .pipe($.traceur())
       .pipe($.$$is_dev() ? $.util.noop() : $.uglify())
       .pipe(gulp.dest('build/' + $.get_env() + '/js'))
     ;

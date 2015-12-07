@@ -18,18 +18,20 @@
   "dependencies": {
     "angular2": "./node_modules/angular2",
     "system.js": "~0.19.6",
-    "traceur": "~0.0.92"
+    "traceur-runtime": "~0.0.92"
   },
   "overrides": {
     "system.js": {
       "main": "dist/system.js",
       "dependencies": {
-        "traceur": "~0.0.92"
+        "traceur-runtime": "~0.0.92"
       }
     },
     "angular2": {
       "main": [
-        "bundles/angular2.js"
+        "bundles/angular2.js",
+        "bundles/http.js",
+        "bundles/router.dev.js"
       ]
     }
   }
