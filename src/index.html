@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Angular 2 QuickStart</title>
+    <!-- build:css css/styles.css -->
+
+    <!-- endbuild -->
+  </head>
+  <body>
+    <my-app>loading...</my-app>
+
+    <!-- build:js js/vendor.js -->
+      <!-- ES6-related imports -->
+      <script src="/js/traceur.js"></script>
+      <script src="/js/system.js"></script>
+      <script src="/js/angular2.js"></script>
+    <!-- endbuild -->
+
+    <script>
+        System.import('./js/app.js').catch(console.log.bind(console));
+    </script>
+
+  </body>
+</html>

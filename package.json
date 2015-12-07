@@ -1,0 +1,27 @@
+{
+  "name": "angular2-test-app",
+  "author": "gillbeits@gmail.com",
+  "devDependencies": {
+    "bower": "^1.6.8",
+    "gulp": "^3.9.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^3.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-print": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-traceur": "^0.17.1",
+    "gulp-typescript": "^2.10.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-useref": "^3.0.3",
+    "gulp-util": "^3.0.7",
+    "main-bower-files": "^2.9.0",
+    "typescript": "^1.7.3"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-alpha.44"
+  }
+}
