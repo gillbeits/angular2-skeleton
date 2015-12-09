@@ -1,11 +1,17 @@
 {
-  "name": "Angular 2",
-  "version": "0.0.0",
+  "name": "angular2-builder",
+  "version": "0.0.1",
+  "homepage": "https://github.com/gillbeits/angular2-skeleton",
   "authors": [
     "Ivan Koretskiy <gillbeits@gmail.com>"
   ],
   "moduleType": [
-    "globals"
+    "node"
+  ],
+  "keywords": [
+    "angular2",
+    "module",
+    "gulp"
   ],
   "license": "MIT",
   "ignore": [
@@ -14,25 +20,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "angular2": "./node_modules/angular2",
-    "system.js": "~0.19.6",
-    "traceur-runtime": "~0.0.92"
-  },
-  "overrides": {
-    "system.js": {
-      "main": "dist/system.js",
-      "dependencies": {
-        "traceur-runtime": "~0.0.92"
-      }
-    },
-    "angular2": {
-      "main": [
-        "bundles/angular2.js",
-        "bundles/http.js",
-        "bundles/router.dev.js"
-      ]
-    }
-  }
+  ]
 }

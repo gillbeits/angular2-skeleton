@@ -1,14 +1,27 @@
 {
   "name": "angular2-test-app",
   "author": "gillbeits@gmail.com",
+  "scripts": {
+    "tsd": "tsd",
+    "gulp": "gulp",
+    "build.dev": "gulp index",
+    "build": "gulp build",
+    "start": "gulp watch",
+    "watch": "gulp watch --no-start-server",
+    "postinstall": "tsd reinstall --clean && tsd link && tsd rebundle && bower install"
+  },
   "devDependencies": {
     "bower": "^1.6.8",
+    "connect-livereload": "^0.5.4",
+    "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-cached": "^1.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-filter": "^3.0.1",
     "gulp-if": "^2.0.0",
     "gulp-load-plugins": "^1.1.0",
+    "gulp-main-bower-files": "^1.2.5",
+    "gulp-npm-files": "git+https://github.com/gillbeits/gulp-npm-files.git",
     "gulp-plumber": "^1.0.1",
     "gulp-print": "^2.0.1",
     "gulp-rename": "^1.2.2",
@@ -18,10 +31,60 @@
     "gulp-uglify": "^1.5.1",
     "gulp-useref": "^3.0.3",
     "gulp-util": "^3.0.7",
-    "main-bower-files": "^2.9.0",
-    "typescript": "^1.7.3"
+    "gulp-watch": "^4.3.5",
+    "merge2": "^0.3.6",
+    "open": "0.0.5",
+    "tiny-lr": "^0.2.1",
+    "typescript": "^1.7.3",
+    "typescript-register": "^1.1.0",
+    "yargs": "^3.31.0"
   },
   "dependencies": {
-    "angular2": "2.0.0-alpha.44"
+    "angular2": "latest",
+    "es6-shim": "^0.33.13",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-alpha.12",
+    "systemjs": "^0.19.6",
+    "zone.js": "0.5.8"
+  },
+  "overrides": {
+    "angular2": {
+      "main": [
+        "bundles/angular2.js",
+        "bundles/http.js",
+        "bundles/router.js"
+      ]
+    },
+    "systemjs": {
+      "main": [
+        "dist/system.js",
+        "dist/system.src.js",
+        "dist/system.js.map"
+      ]
+    },
+    "es6-shim": {
+      "main": [
+        "es6-shim.js",
+        "es6-shim.min.js",
+        "es6-shim.map"
+      ]
+    },
+    "rxjs": {
+      "main": [
+        "Rx.js",
+        "Rx.js.map"
+      ]
+    },
+    "reflect-metadata": {
+      "main": [
+        "Reflect.js",
+        "Reflect.js.map"
+      ]
+    },
+    "zone.js": {
+      "main": [
+        "dist/zone.min.js"
+      ]
+    }
   }
 }

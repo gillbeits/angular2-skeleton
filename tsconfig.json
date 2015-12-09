@@ -1,27 +1,20 @@
 {
   "version": "1.6.0",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "build/js",
     "target": "es5",
     "module": "system",
     "moduleResolution": "node",
-    "declaration": false,
+    "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "listFiles": true
+    "listFiles": false
   },
-  "files": [
-        "node_modules/angular2/bundles/typings/angular2/angular2.d.ts",
-        "node_modules/angular2/bundles/typings/angular2/http.d.ts",
-        "node_modules/angular2/bundles/typings/angular2/router.d.ts",
-        "src/js/app.ts"
-  ],
   "exclude": [
-      "node_modules"
-  ]
+    "node_modules"
+  ],
+  "compileOnSave": false
 }
