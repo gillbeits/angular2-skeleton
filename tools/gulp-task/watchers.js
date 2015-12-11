@@ -1,21 +1,17 @@
 module.exports = function (gulp, $) {
   "use strict";
 
-  var runSequence = require('run-sequence');
-
-  function getNotifier (tasks) {
-    return function (e) {
-      runSequence(tasks, function () {
-        $._START_SERVER ? $.notifyLiveReload(e) : $.util.noop();
-      });
-    };
-  }
-
   gulp.task('watch', ['serve'], function () {
-    $.watch(['src/js/**/*.ts'], getNotifier('typescript'));
-    $.watch(['src/stylus/**/*.styl'], getNotifier('stylus'));
-    $.watch(['src/index.jade'], getNotifier('index'));
-    $.watch(['bower.json'], getNotifier('bower'));
-    $.watch(['package.json'], getNotifier('npm-files'));
+    gulp.watch(['src/js/**/*.ts'], ['typescript']);
+    gulp.watch(['src/stylus/**/*.styl'], ['stylus']);
+    gulp.watch(['src/index.jade'], ['index']);
+    gulp.watch(['bower.json'], ['bower']);
+    gulp.watch(['package.json'], ['npm-files']);
+
+    gulp.watch([
+      $._path.join($._BUILD_DIR, $.get_env(), '/**/*.css'),
+      $._path.join($._BUILD_DIR, $.get_env(), '/**/*.js'),
+      $._path.join($._BUILD_DIR, $.get_env(), '/**/*.html')
+    ]).on('change', $._START_SERVER ? $.notifyLiveReload : $.util.noop);
   });
 };

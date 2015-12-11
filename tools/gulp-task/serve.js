@@ -14,7 +14,7 @@ module.exports = function (gulp, $) {
 
   if ($._START_SERVER) {
     $.notifyLiveReload = function notifyLiveReload (e) {
-      var fileName = e.path;
+      var fileName = $._path.relative($._path.join($._BUILD_DIR, 'dev'), e.path);
       tinyLr.changed({
         body: { files: [fileName] }
       });
