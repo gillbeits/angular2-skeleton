@@ -10,7 +10,7 @@ module.exports = function (gulp, $) {
   }
 
   function transformPath (path) {
-    arguments[0] = path.replace(new RegExp("^/" + $._path.join($._BUILD_DIR, 'dev')), '');
+    arguments[0] = path.replace(new RegExp("^/" + $._BUILD_DIR + '/dev'), '');
     return slash($.inject.transform.apply($.inject.transform, arguments));
   }
 
