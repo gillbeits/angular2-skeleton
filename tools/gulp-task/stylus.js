@@ -9,12 +9,13 @@ module.exports = function (gulp, $) {
     return gulp.src('src/stylus/index.styl')
       .pipe($.plumber())
       .pipe($.print())
-      .pipe($.sourcemaps.init())
+      .pipe($.sourcemaps.init({ loadMaps: true }))
       .pipe($.stylus({
         use: [
           require('nib')()
         ],
-        compress: true
+        compress: true,
+        sourcemap: { inline: true }
       }))
       .pipe($.rename('styles.css'))
       .pipe($.sourcemaps.write('../maps', { sourceRoot: '/stylus' }))

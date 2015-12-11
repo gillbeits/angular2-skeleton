@@ -5,6 +5,7 @@ module.exports = function (gulp, $) {
     gulp.watch(['src/js/**/*.ts'], ['typescript']);
     gulp.watch(['src/stylus/**/*.styl'], ['stylus']);
     gulp.watch(['src/index.jade'], ['index']);
+    gulp.watch(['src/jade/**/*.jade'], ['jade']);
     gulp.watch(['bower.json'], ['bower']);
     gulp.watch(['package.json'], ['npm-files']);
 

@@ -14,7 +14,7 @@ module.exports = function (gulp, $) {
     return slash($.inject.transform.apply($.inject.transform, arguments));
   }
 
-  gulp.task('index', ['bower', 'typescript', 'stylus'], function () {
+  gulp.task('index', ['bower', 'typescript', 'stylus', 'jade'], function () {
 
     var jadeOpts = {
       pretty: $.$$is_dev() ? true : false

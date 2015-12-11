@@ -3,12 +3,10 @@ import {View, Component} from 'angular2/angular2';
   selector: 'startComponent'
 })
 @View({
-  template: `
-    <h2>Start</h2>
-  `
+  templateUrl: '../templates/components/start.html'
 })
 export class Start {
   constructor() {
-    console.error("Test");
+    console.error('Test');
   }
 }

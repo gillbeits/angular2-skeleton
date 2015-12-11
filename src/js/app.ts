@@ -1,8 +1,8 @@
 /*
  * Angular 2 decorators and services
  */
-import {bootstrap, Directive, View, Component} from 'angular2/angular2';
-import {RouteConfig, Router} from 'angular2/router';
+import {View, Component} from 'angular2/angular2';
+import {RouteConfig} from 'angular2/router';
 import {Http, Headers} from 'angular2/http';
 /*
  * Angular Directives
@@ -16,10 +16,7 @@ import { Start } from './components/start';
 })
 @View({
   directives: [ROUTER_DIRECTIVES],
-  template: `
-    <h1>My First Angular 2 App</h1>
-    <router-outlet></router-outlet>
-  `
+  templateUrl: '../templates/app.html'
 })
 @RouteConfig([
   { path: '/', component: Start }
