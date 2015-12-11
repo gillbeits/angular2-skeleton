@@ -1,9 +1,21 @@
 module.exports = function (gulp, $) {
   "use strict";
 
+  var runSequence = require('run-sequence');
+
+  function getNotifier (tasks) {
+    return function (e) {
+      runSequence(tasks, function () {
+        $._START_SERVER ? $.notifyLiveReload(e) : $.util.noop();
+      });
+    };
+  }
+
   gulp.task('watch', ['serve'], function () {
-    gulp.watch(['src/js/**/*.ts'], ['typescript']).on('change', $._START_SERVER ? $.notifyLiveReload : $.util.noop);
-    gulp.watch(['src/index.html'], ['index']).on('change', $._START_SERVER ? $.notifyLiveReload : $.util.noop);
-    gulp.watch(['bower.json'], ['bower']).on('change', $._START_SERVER ? $.notifyLiveReload : $.util.noop);
+    $.watch(['src/js/**/*.ts'], getNotifier('typescript'));
+    $.watch(['src/stylus/**/*.styl'], getNotifier('stylus'));
+    $.watch(['src/index.jade'], getNotifier('index'));
+    $.watch(['bower.json'], getNotifier('bower'));
+    $.watch(['package.json'], getNotifier('npm-files'));
   });
 };

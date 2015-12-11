@@ -1,0 +1,30 @@
+// Created by gillbeits on 11.12.15.
+doctype html
+html(lang="ru")
+    head
+        title Angular 2 QuickStart
+        // base url
+        base(href='/')
+        // build:css css/styles.css
+        // inject:head:css
+        // endinject
+        // endbuild
+        link(rel='stylesheet', type='text/css', href='/css/app/styles.css')
+
+        // build:js libs/runtime.js
+        // inject:head:js
+        // endinject
+        // endbuild
+    body
+        app loading...
+        script(type='text/javascript').
+            System.defaultJSExtensions = true;
+
+        // build:js libs/vendor.js
+        // inject:body:js
+        // endinject
+        // endbuild
+
+        script(type='text/javascript').
+            System.import('js/app/bootstrap').catch(console.log.bind(console));
+

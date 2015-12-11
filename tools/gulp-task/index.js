@@ -14,9 +14,14 @@ module.exports = function (gulp, $) {
     return slash($.inject.transform.apply($.inject.transform, arguments));
   }
 
-  gulp.task('index', ['bower', 'typescript'], function () {
+  gulp.task('index', ['bower', 'typescript', 'stylus'], function () {
 
-    return gulp.src('src/index.html')
+    var jadeOpts = {
+      pretty: $.$$is_dev() ? true : false
+    };
+
+    return gulp.src('src/index.jade')
+        .pipe($.jade(jadeOpts))
         .pipe($.inject(getInjectableRef("head:js"), { starttag: "<!-- inject:head:{{ext}} -->", transform: transformPath }))
         .pipe($.inject(getInjectableRef("head:css"), { starttag: "<!-- inject:head:{{ext}} -->", transform: transformPath }))
         .pipe($.inject(getInjectableRef("body:js"), { starttag: "<!-- inject:body:{{ext}} -->", transform: transformPath }))
