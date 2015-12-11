@@ -1,0 +1,14 @@
+{
+  "inject": {
+    "head:js": [
+      "es6-shim/es6-shim.min.js",
+      "systemjs/dist/system.js"
+    ],
+    "head:css": [],
+    "body:js": [
+      "angular2/bundles/angular2.js",
+      "angular2/bundles/http.js",
+      "angular2/bundles/router.js"
+    ]
+  }
+}

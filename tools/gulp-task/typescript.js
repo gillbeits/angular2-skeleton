@@ -13,16 +13,16 @@ module.exports = function (gulp, $) {
     ;
     return merge([
       tsResult.dts
-        .pipe(gulp.dest('build/' + $.get_env() + '/js/typings')),
+        .pipe(gulp.dest($._path.join($._BUILD_DIR, $.get_env(), 'js', 'typings'))),
       tsResult.js
         .pipe($.sourcemaps.write({ sourceRoot: '/ts' }))
-        .pipe(gulp.dest('build/' + $.get_env() + '/js/app'))
+        .pipe(gulp.dest($._path.join($._BUILD_DIR, $.get_env(), 'js', 'app')))
 
-        .pipe($.if('*.js', $.sourcemaps.init({ loadMaps: true })))
+        .pipe($.if('*.js', ($.$$is_dev() ? $.util.noop() : $.sourcemaps.init({ loadMaps: true }))))
         .pipe($.if('*.js', ($.$$is_dev() ? $.util.noop() : $.uglify())))
-        .pipe($.if('*.js', $.sourcemaps.write('../maps/', { sourceRoot: '/maps/js' })))
+        .pipe($.if('*.js', ($.$$is_dev() ? $.util.noop() : $.sourcemaps.write('../maps/', { sourceRoot: '/maps/js' }))))
 
-        .pipe(gulp.dest('build/' + $.get_env() + '/js/app'))
+        .pipe(($.$$is_dev() ? $.util.noop() : gulp.dest($._path.join($._BUILD_DIR, $.get_env(), 'js', 'app'))))
       ]);
   });
 };

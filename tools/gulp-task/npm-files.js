@@ -6,7 +6,7 @@ module.exports = function (gulp, $) {
       .pipe($.plumber())
       .pipe($.cached('npm-files-temp', { optimizeMemory: true }))
       .pipe($.print())
-      .pipe(gulp.dest('build/dev/libs/'))
+      .pipe(gulp.dest($._path.join($._BUILD_DIR, 'dev', 'libs')))
     ;
   });
 };

@@ -1,34 +1,34 @@
 <html>
-  <head>
+<head>
     <title>Angular 2 QuickStart</title>
-    <!-- build:css css/styles.css -->
-    <!-- endbuild -->
-
     <!-- base url -->
     <base href="/">
-
-    <!-- build:js libs/runtime.js -->
-      <script src="/libs/es6-shim/es6-shim.min.js"></script>
-      <script src="/libs/systemjs/dist/system.js"></script>
+    <!-- build:css css/styles.css -->
+        <!-- inject:head:css -->
+        <!-- endinject -->
     <!-- endbuild -->
 
-  </head>
-  <body>
+    <!-- build:js libs/runtime.js -->
+        <!-- inject:head:js -->
+        <!-- endinject -->
+    <!-- endbuild -->
+
+</head>
+<body>
     <app>loading...</app>
 
     <script type="text/javascript">
-      System.defaultJSExtensions = true;
+        System.defaultJSExtensions = true;
     </script>
 
     <!-- build:js libs/vendor.js -->
-      <script src="/libs/angular2/bundles/angular2.js"></script>
-      <script src="/libs/angular2/bundles/http.js"></script>
-      <script src="/libs/angular2/bundles/router.js"></script>
+        <!-- inject:body:js -->
+        <!-- endinject -->
     <!-- endbuild -->
 
     <script type="text/javascript">
-      System.import('js/app/bootstrap').catch(console.log.bind(console));
+        System.import('js/app/bootstrap').catch(console.log.bind(console));
     </script>
 
-  </body>
+</body>
 </html>
