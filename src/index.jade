@@ -11,14 +11,8 @@ html(lang="ru")
         // endbuild
         link(rel='stylesheet', type='text/css', href='/css/app/styles.css')
 
-        // build:js libs/runtime.js
-        // inject:head:js
-        // endinject
-        // endbuild
     body
         app loading...
-        script(type='text/javascript').
-            System.defaultJSExtensions = true;
 
         // build:js libs/vendor.js
         // inject:body:js
@@ -26,4 +20,14 @@ html(lang="ru")
         // endbuild
 
         script(type='text/javascript').
-            System.import('js/app/bootstrap').catch(console.log.bind(console));
+            System.config({
+                transpiler: 'typescript',
+                typescriptOptions: {emitDecoratorMetadata: true},
+                packages: {
+                    js: {
+                        format: 'register',
+                        defaultExtension: 'js'
+                    }
+                }
+            });
+            System.import('js/app/bootstrap').then(null, console.error.bind(console));

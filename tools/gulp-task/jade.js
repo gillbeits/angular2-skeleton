@@ -9,7 +9,7 @@ module.exports = function (gulp, $) {
 
     return gulp.src('src/jade/**/*.jade')
       .pipe($.jade(jadeOpts))
-      .pipe($.$$is_dev() ? $.util.noop() : $.if('*.html', $.minifyHtml({ conditionals: true, spare:true })))
+      .pipe($.$$is_dev() ? $.util.noop() : $.if('*.html', $.htmlmin({collapseWhitespace: true})))
       .pipe(gulp.dest($._path.join($._BUILD_DIR, $.get_env(), 'templates')));
   });
 };

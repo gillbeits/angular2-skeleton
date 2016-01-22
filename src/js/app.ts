@@ -1,26 +1,25 @@
 /*
  * Angular 2 decorators and services
  */
-import {View, Component} from 'angular2/angular2';
-import {RouteConfig} from 'angular2/router';
+import {View, Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Http, Headers} from 'angular2/http';
-/*
- * Angular Directives
- */
-import {ROUTER_DIRECTIVES} from 'angular2/router';
 
-import { Start } from './components/start';
+import { StartComponent } from './components/start';
 
 @Component({
-    selector: 'app'
+  selector: 'app'
 })
 @View({
   directives: [ROUTER_DIRECTIVES],
   templateUrl: '../templates/app.html'
 })
 @RouteConfig([
-  { path: '/', component: Start }
+  {
+    path: '/',
+    name: 'Root',
+    component: StartComponent,
+    useAsDefault: true
+  }
 ])
-export class AppComponent {
-
-}
+export class AppComponent { }

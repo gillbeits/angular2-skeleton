@@ -17,12 +17,12 @@
     "gulp": "^3.9.0",
     "gulp-cached": "^1.1.0",
     "gulp-concat": "^2.6.0",
+    "gulp-htmlmin": "^1.3.0",
     "gulp-if": "^2.0.0",
     "gulp-inject": "^3.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-main-bower-files": "^1.2.5",
-    "gulp-minify-html": "^1.0.4",
     "gulp-npm-files": "git+https://github.com/gillbeits/gulp-npm-files.git",
     "gulp-plumber": "^1.0.1",
     "gulp-print": "^2.0.1",
@@ -49,23 +49,26 @@
     "yargs": "^3.31.0"
   },
   "dependencies": {
-    "angular2": "latest",
-    "es6-shim": "^0.33.13",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "latest",
+    "angular2": "2.0.0-beta.1",
+    "es6-shim": "^0.33",
+    "rxjs": "5.0.0-beta.0",
     "systemjs": "^0.19.6",
-    "zone.js": "0.5.8"
+    "zone.js": "0.5.10"
   },
   "overrides": {
     "angular2": {
       "main": [
-        "bundles/angular2.js",
-        "bundles/http.js",
-        "bundles/router.js"
+        "bundles/angular2-polyfills.js",
+        "bundles/angular2.dev.js",
+        "bundles/http.dev.js",
+        "bundles/router.dev.js"
       ]
     },
     "systemjs": {
       "main": [
+        "dist/system-polyfills.js",
+        "dist/system-polyfills.js.map",
+        "dist/system-polyfills.src.js",
         "dist/system.js",
         "dist/system.src.js",
         "dist/system.js.map"
@@ -80,14 +83,9 @@
     },
     "rxjs": {
       "main": [
-        "Rx.js",
-        "Rx.js.map"
-      ]
-    },
-    "reflect-metadata": {
-      "main": [
-        "Reflect.js",
-        "Reflect.js.map"
+        "bundles/Rx.js",
+        "bundles/Rx.js.map",
+        "bundles/Rx.min.js"
       ]
     },
     "zone.js": {
