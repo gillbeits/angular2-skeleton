@@ -17,6 +17,10 @@ module.exports = function (gulp, $) {
         compress: true,
         sourcemap: { inline: true }
       }))
+      .pipe($.autoprefixer({
+        browsers: ['> 1%', 'last 2 versions'],
+        cascade: false
+      }))
       .pipe($.rename('styles.css'))
       .pipe($.sourcemaps.write('../maps', { sourceRoot: '/stylus' }))
       .pipe(gulp.dest($._path.join($._BUILD_DIR, $.get_env(), 'css', 'app')))
